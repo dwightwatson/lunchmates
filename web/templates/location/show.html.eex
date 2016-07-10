@@ -1,0 +1,10 @@
+<h1><%= @location.name %> <small>From <%= @location.user.name %></h1>
+
+<%= if @current_user == @location.user do %>
+  <%= link "Edit #{@location.name}", to: location_path(@conn, :edit, @location), class: "btn btn-default" %>
+  <%= link "Delete #{@location.name}", to: location_path(@conn, :delete, @location), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
+<% end %>
+
+<hr>
+
+<p class="lead"><%= @location.description %></p>

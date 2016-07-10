@@ -1,0 +1,16 @@
+<h2><%= @user.name %></h2>
+
+<%= if Enum.empty?(@user.locations) do %>
+  <p><%= @user.name %> hasn't added any locations yet.</p>
+  <p>How boring.</p>
+<% else %>
+  <h3><%= @user.name %>'s Locations</h3>
+  <%= for location <- @user.locations do %>
+    <li><%= link location.name, to: location_path(@conn, :show, location) %></li>
+  <% end %>
+<% end %>
+
+<%= if @current_user == @user do %>
+  <%= link "Edit", to: account_path(@conn, :edit) %>
+<%= end %>
+<%= link "Back", to: user_path(@conn, :index) %>

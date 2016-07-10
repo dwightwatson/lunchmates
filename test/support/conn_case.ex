@@ -26,6 +26,7 @@ defmodule Lunchmates.ConnCase do
       import Ecto.Query
 
       import Lunchmates.Router.Helpers
+      import Lunchmates.TestHelpers
 
       # The default endpoint for testing
       @endpoint Lunchmates.Endpoint

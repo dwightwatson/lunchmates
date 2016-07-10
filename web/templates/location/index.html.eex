@@ -1,0 +1,24 @@
+<h2>All locations</h2>
+
+<%= link "New location", to: location_path(@conn, :new), class: "btn btn-default" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for location <- @locations do %>
+    <tr>
+      <td>
+        <%= link location.name, to: location_path(@conn, :show, location) %>
+      </td>
+      <td>
+        <%= link location.user.name, to: user_path(@conn, :show, location.user) %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

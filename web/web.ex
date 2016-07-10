@@ -36,6 +36,8 @@ defmodule Lunchmates.Web do
 
       import Lunchmates.Router.Helpers
       import Lunchmates.Gettext
+
+      import Lunchmates.Auth, only: [authenticate: 2, guest: 2]
     end
   end
 

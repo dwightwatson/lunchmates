@@ -13,14 +13,32 @@
 
   <body>
     <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+      <nav class="navbar navbar-default">
+        <%= link "Lunchmates", to: page_path(@conn, :index), class: "navbar-brand" %>
+
+        <ul class="nav navbar-nav">
+          <li class="<%= active_class @conn, location_path(@conn, :index) %>">
+            <%= link "Locations", to: location_path(@conn, :index) %>
+          </li>
+          <li class="<%= active_class @conn, user_path(@conn, :index) %>">
+            <%= link "Lunchers", to: user_path(@conn, :index) %>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <%= if @current_user do %>
+            <li class="<%= active_class @conn, user_path(@conn, :show, @current_user) %>">
+              <%= link @current_user.name, to: user_path(@conn, :show, @current_user) %>
+            </li>
+            <li>
+              <%= link "Logout", to: session_path(@conn, :delete), method: :delete %>
+            </li>
+          <%= else %>
+            <li><%= link "Join", to: user_path(@conn, :new) %></li>
+            <li><%= link "Login", to: session_path(@conn, :new) %></li>
+          <%= end %>
+        </ul>
+      </nav>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

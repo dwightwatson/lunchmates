@@ -7,6 +7,7 @@ defmodule Lunchmates.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Lunchmates.Auth, repo: Lunchmates.Repo
   end
 
   pipeline :api do
@@ -17,6 +18,17 @@ defmodule Lunchmates.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/logout", SessionController, :delete
+
+    get "/account", AccountController, :index
+    put "/account", AccountController, :update
+    delete "/account", AccountController, :delete
+
+    resources "/users", UserController, only: [:index, :new, :create, :show]
+    resources "/locations", LocationController
   end
 
   # Other scopes may use custom stacks.
