@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>User</th>
+      <th>Added</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +18,9 @@
       </td>
       <td>
         <%= link location.user.name, to: user_path(@conn, :show, location.user) %>
+      </td>
+      <td>
+        <%= location.inserted_at %>
       </td>
     </tr>
 <% end %>
