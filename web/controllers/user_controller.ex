@@ -34,7 +34,7 @@ defmodule Lunchmates.UserController do
 
   def show(conn, %{"id" => id}) do
     user = User
-    |>preload(:locations)
+    |> preload(:locations)
     |> Repo.get!(id)
     # user = Repo.get!(User, id)
     render(conn, "show.html", user: user)
