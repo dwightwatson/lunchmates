@@ -28,6 +28,7 @@ defmodule Lunchmates.Router do
     delete "/account", AccountController, :delete
 
     resources "/users", UserController, only: [:index, :new, :create, :show]
+    resources "/lunches", LunchController, only: [:index, :show]
     resources "/locations", LocationController
   end
 

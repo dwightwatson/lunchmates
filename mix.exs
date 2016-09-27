@@ -39,7 +39,7 @@ defmodule Lunchmates.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.0"},
-     {:phoenix_html_simplified_helpers, "~> 0.6.0"}]
+     {:phoenix_html_simplified_helpers, "~> 0.7.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
