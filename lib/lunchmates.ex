@@ -12,6 +12,8 @@ defmodule Lunchmates do
       supervisor(Lunchmates.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Lunchmates.Endpoint, []),
+      # Start the Presence monitor
+      supervisor(Lunchmates.Presence, []),
       # Start your own worker by calling: Lunchmates.Worker.start_link(arg1, arg2, arg3)
       # worker(Lunchmates.Worker, [arg1, arg2, arg3]),
     ]

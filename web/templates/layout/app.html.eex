@@ -48,6 +48,11 @@
       </main>
 
     </div> <!-- /container -->
+    <%= if @current_user do %>
+      <script>
+        window.userId = "<%= @current_user.name %>"
+      </script>
+    <% end %>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
