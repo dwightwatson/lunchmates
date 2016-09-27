@@ -1,8 +1,5 @@
 <div class="jumbotron">
   <h2>Every 7 days, you'll get fed by us.</h2>
   <p class="lead">Help us pick what's on the menu.</p>
-  <small>
-    <%= node() %>
-    <div id="user-list"></div>
-  </small>
+  <div id="user-list"></div>
 </div>
