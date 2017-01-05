@@ -19,13 +19,13 @@ defmodule Lunchmates.UserTest do
   test "create_changeset password must be longer than 6 characters" do
     attrs = Map.put(@valid_attrs, :password, "12345")
     changeset = User.create_changeset(%User{}, attrs)
-    assert {:password, {"should be at least %{count} character(s)", count: 6}} in changeset.errors
+    assert changeset.errors[:password]
   end
 
   test "create_changeset password must be shorter than 100 characters" do
     attrs = Map.put(@valid_attrs, :password, String.duplicate("1", 101))
     changeset = User.create_changeset(%User{}, attrs)
-    assert {:password, {"should be at most %{count} character(s)", count: 100}} in changeset.errors
+    assert changeset.errors[:password]
   end
 
   test "create_changeset with valid attributes hashes password" do
