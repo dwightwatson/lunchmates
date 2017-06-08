@@ -3,7 +3,7 @@ defmodule Lunchmates.LunchControllerTest do
 
   alias Lunchmates.Lunch
   @valid_attrs %{date: %{day: 1, month: 1, year: 2000}}
-  @invalid_attrs %{date: nil}
+  # @invalid_attrs %{date: nil}
 
   setup %{conn: conn} = config do
     if config[:login] do
